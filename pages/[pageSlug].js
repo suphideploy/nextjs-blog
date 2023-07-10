@@ -42,7 +42,7 @@ export default function Page({ pageData }) {
                     <h1 className="text-6xl text-center text-slate-700 relative py-8">
                         {pageData.title}
                     </h1>
-                    <div dangerouslySetInnerHTML={{ __html: pageData.content }} className="post-content container mx-auto lg:max-w-4xl" />
+                    <div dangerouslySetInnerHTML={{ __html: pageData.content }} className="post-content container mx-auto lg:max-w-4xl " />
                 </article>
             </section>
             <SiteFooter />

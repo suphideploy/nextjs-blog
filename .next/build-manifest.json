@@ -37,6 +37,11 @@
       "static/chunks/main.js",
       "static/chunks/pages/blog.js"
     ],
+    "/blog/[postSlug]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/blog/[postSlug].js"
+    ],
     "/contact": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

@@ -5,5 +5,6 @@
   "/[pageSlug]": "pages/[pageSlug].js",
   "/blog": "pages/blog.js",
   "/": "pages/index.js",
-  "/contact": "pages/contact.js"
+  "/contact": "pages/contact.js",
+  "/blog/[postSlug]": "pages/blog/[postSlug].js"
 }
