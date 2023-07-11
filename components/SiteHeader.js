@@ -12,6 +12,7 @@ export default function SiteHeader({ className }){
                     </Link>
                 </div>
                 <nav className="text-slate-100">
+                    
                     <ul className="flex justify-center [&>li>a]:px-3 [&>li>a]:py-2 [&>li>a:hover]:text-yellow-400 [&>li>a]:translation text-xl">
                         <li>
                             <Link href="/">Home</Link>

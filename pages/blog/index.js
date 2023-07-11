@@ -3,13 +3,16 @@ import Link from "next/link";
 import Image from "next/image";
 
 import SiteHeader from "@/components/SiteHeader";
-import { getAllPosts } from "@/lib/posts";
+import { getPostList } from "@/lib/posts";
 import FeaturedImage from "@/components/FeaturedImage";
 import SiteFooter from "@/components/SiteFooter";
 import Date from "@/components/Date";
+import LoadMore from "@/components/LoadMore";
+import { useState } from "react";
+import { set } from "date-fns";
 
 export async function getStaticProps(){
-    const allPosts = await getAllPosts();
+    const allPosts = await getPostList();
 
     return {
         props: {
@@ -21,6 +24,8 @@ export async function getStaticProps(){
 
 
 export default function BlogHome({ allPosts }){
+
+    const [posts, setPosts] = useState(allPosts);
     return (
        <>
        <Head>
@@ -40,7 +45,7 @@ export default function BlogHome({ allPosts }){
         <section className="container mx-auto lg:max-w-5xl post-list mt-4">
             <ul>
                 {
-                    allPosts.nodes.map((post) => (
+                    posts.nodes.map((post) => (
                         <li key={post.slug} className="grid grid-cols-5 gap-4 mb-4">
                             <div className="col-span-2">
                                 <FeaturedImage post={post}/>
@@ -55,15 +60,13 @@ export default function BlogHome({ allPosts }){
                                 <div className="text-lg" dangerouslySetInnerHTML={{
                                     __html: post.excerpt }}></div>
                                 <div className='py-4'>
-                                    Poster unter {
-                                        post.categories.nodes.map
-                                        ((category) => (
-                                            <Link className="text-blue-400  hover:text-blue-500" href={'/category/${category.slug}'} key={category.slug}>
-                                             {category.name} </Link>
-                                        )
-                                        
-                                        )
-                                    }
+                                Posted under {
+                                            post.categories.nodes.map((category) => (
+                                                <Link className="text-blue-400 hover:text-blue-500" href={`/category/${category.slug}`} key={category.slug}>
+                                                    {category.name}
+                                                </Link>
+                                            ))
+                                        }
                                 </div>
 
                             </div>
@@ -72,6 +75,9 @@ export default function BlogHome({ allPosts }){
                     ))
                 }
             </ul>
+            <div className="py-4 text-center">
+                <LoadMore posts={posts} setPosts={setPosts} />
+            </div>
         </section>
 
        </main>

@@ -1,10 +1,14 @@
 {
   "/_app": "pages/_app.js",
+  "/api/hello": "pages/api/hello.js",
+  "/api/form": "pages/api/form.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+  "/contact": "pages/contact.html",
   "/[pageSlug]": "pages/[pageSlug].js",
+  "/": "pages/index.html",
+  "/blog/[postSlug]": "pages/blog/[postSlug].js",
   "/blog": "pages/blog.js",
-  "/": "pages/index.js",
-  "/contact": "pages/contact.js",
-  "/blog/[postSlug]": "pages/blog/[postSlug].js"
+  "/category/[categoryName]": "pages/category/[categoryName].js",
+  "/404": "pages/404.html"
 }

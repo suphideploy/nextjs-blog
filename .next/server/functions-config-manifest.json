@@ -1,0 +1,6 @@
+{
+  "/[pageSlug]": {},
+  "/blog/[postSlug]": {},
+  "/blog": {},
+  "/category/[categoryName]": {}
+}
